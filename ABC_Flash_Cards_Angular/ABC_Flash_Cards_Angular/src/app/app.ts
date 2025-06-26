@@ -3,8 +3,10 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { MatMenuModule } from '@angular/material/menu';
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
+import { CommonModule } from '@angular/common';
 
 interface FlashCard {
   letter: string;
@@ -18,15 +20,23 @@ interface FlashCard {
   styleUrl: './app.scss',
   standalone: true,
   imports: [
+    CommonModule,
     MatToolbarModule,
     MatCardModule,
     MatIconModule,
     MatButtonModule,
-  ], // Angular Material modules are provided in app.config.ts
+    MatMenuModule
+
+  ],
 })
 export class AppComponent {
   title = 'ABC Flash Cards';
-  cards: FlashCard[] = [
+  menu = [
+    { label: 'English ABC', value: 'en' },
+    { label: 'Arabic Letters', value: 'ar' }
+  ];
+  selectedSet = 'en';
+  cardsEn: FlashCard[] = [
     { letter: 'A', word: 'Apple', image: '🍎' },
     { letter: 'B', word: 'Ball', image: '⚽' },
     { letter: 'C', word: 'Cat', image: '🐱' },
@@ -54,7 +64,46 @@ export class AppComponent {
     { letter: 'Y', word: 'Yacht', image: '🛥️' },
     { letter: 'Z', word: 'Zebra', image: '🦓' },
   ];
+  cardsAr: FlashCard[] = [
+    { letter: 'ا', word: 'أرنب', image: '🐇' },
+    { letter: 'ب', word: 'بطة', image: '🦆' },
+    { letter: 'ت', word: 'تفاح', image: '🍏' },
+    { letter: 'ث', word: 'ثعلب', image: '🦊' },
+    { letter: 'ج', word: 'جمل', image: '🐫' },
+    { letter: 'ح', word: 'حصان', image: '🐎' },
+    { letter: 'خ', word: 'خروف', image: '🐑' },
+    { letter: 'د', word: 'ديك', image: '🐓' },
+    { letter: 'ذ', word: 'ذئب', image: '🐺' },
+    { letter: 'ر', word: 'رمان', image: '🍎' },
+    { letter: 'ز', word: 'زرافة', image: '🦒' },
+    { letter: 'س', word: 'سمكة', image: '🐟' },
+    { letter: 'ش', word: 'شمس', image: '☀️' },
+    { letter: 'ص', word: 'صقر', image: '🦅' },
+    { letter: 'ض', word: 'ضفدع', image: '🐸' },
+    { letter: 'ط', word: 'طاووس', image: '🦚' },
+    { letter: 'ظ', word: 'ظبي', image: '🦌' },
+    { letter: 'ع', word: 'عصفور', image: '🐦' },
+    { letter: 'غ', word: 'غزال', image: '🦌' },
+    { letter: 'ف', word: 'فيل', image: '🐘' },
+    { letter: 'ق', word: 'قرد', image: '🐒' },
+    { letter: 'ك', word: 'كلب', image: '🐶' },
+    { letter: 'ل', word: 'لبن', image: '🥛' },
+    { letter: 'م', word: 'موز', image: '🍌' },
+    { letter: 'ن', word: 'نمر', image: '🐅' },
+    { letter: 'هـ', word: 'هدهد', image: '🦉' },
+    { letter: 'و', word: 'وردة', image: '🌹' },
+    { letter: 'ي', word: 'يمامة', image: '🕊️' },
+  ];
   currentIndex = 0;
+
+  get cards() {
+    return this.selectedSet === 'en' ? this.cardsEn : this.cardsAr;
+  }
+
+  selectSet(set: string) {
+    this.selectedSet = set;
+    this.currentIndex = 0;
+  }
 
   prevCard() {
     this.currentIndex = this.currentIndex > 0 ? this.currentIndex - 1 : this.cards.length - 1;
@@ -63,6 +112,10 @@ export class AppComponent {
     this.currentIndex = this.currentIndex < this.cards.length - 1 ? this.currentIndex + 1 : 0;
   }
 
+  get selectedMenuLabel() {
+    const selected = this.menu.find(m => m.value === this.selectedSet);
+    return selected ? selected.label : '';
+  }
   async exportPDF() {
     const cardsPerRow = 3;
     const cardWidth = 130;
@@ -97,7 +150,7 @@ export class AppComponent {
 
 
         card.innerHTML = `
-            <div style="font-size:4rem;font-weight:bold;color:#fff;margin-bottom:0.7rem;line-height:1;text-shadow:0 2px 8px #b8c0ff;">${this.cards[cardIndex].letter}</div>
+            <div style="font-size:4rem;font-weight:bold;color:#000;margin-bottom:0.7rem;line-height:1;text-shadow:0 2px 8px #b8c0ff;">${this.cards[cardIndex].letter}</div>
             <div style="font-size:2.5rem;margin-bottom:0.7rem;line-height:1;text-shadow:0 2px 8px #b8c0ff;">${this.cards[cardIndex].image}</div>
             <div style="font-size:1.3rem;color:#333;text-align:center;word-break:break-word;line-height:1.1;background:rgba(255,255,255,0.7);padding:0.2em 0.7em;border-radius:1em;box-shadow:0 1px 4px #b8c0ff;">${this.cards[cardIndex].word}</div>
 

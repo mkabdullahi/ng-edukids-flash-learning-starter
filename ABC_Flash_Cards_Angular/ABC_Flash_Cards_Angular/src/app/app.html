@@ -1,4 +1,16 @@
-<mat-toolbar color="primary">ABC Flash Cards</mat-toolbar>
+<mat-toolbar color="primary">
+  <span>ABC Flash Cards</span>
+  <span class="spacer"></span>
+  <button mat-button [matMenuTriggerFor]="setMenu">
+    <mat-icon>menu</mat-icon>
+    {{ selectedMenuLabel }}
+  </button>
+</mat-toolbar>
+<mat-menu #setMenu="matMenu">
+  <button mat-menu-item *ngFor="let m of menu" (click)="selectSet(m.value)">
+    {{ m.label }}
+  </button>
+</mat-menu>
 <div class="flashcard-container">
   <mat-card class="flashcard">
     <div class="flashcard-letter">{{ cards[currentIndex].letter }}</div>
