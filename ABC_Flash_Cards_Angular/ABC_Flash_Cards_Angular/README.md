@@ -1,59 +1,55 @@
-# ABCFlashCardsAngular
+# ABC Flash Cards Angular App
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.0.4.
+A stylish, interactive ABC flash card web app for toddlers, built with Angular and Angular Material. Features large, friendly visuals and the ability to export all flash cards as a printable PDF—perfect for learning at home or on the go!
 
-## Development server
+## Features
 
-To start a local development server, run:
+- **Interactive Flash Cards:** Swipe or click to navigate through the alphabet, each card showing a large letter, a friendly emoji image, and a clear word.
+- **Stylish Design:** Modern, colorful cards with a playful frame and accessible, large visuals.
+- **PDF Export:** Export all flash cards to a print-ready PDF, arranged 3 cards per row and 3 rows per page, matching the web look.
+- **Responsive:** Works on desktop and mobile browsers.
 
-```bash
-ng serve
-```
+## Getting Started
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+### Prerequisites
 
-## Code scaffolding
+- [Node.js](https://nodejs.org/) (v18+ recommended)
+- [Angular CLI](https://angular.io/cli) (`npm install -g @angular/cli`)
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+### Installation
 
-```bash
-ng generate component component-name
-```
+1. Clone this repository or copy the project files.
+2. Install dependencies:
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+   ```sh
+   npm install
+   ```
 
-```bash
-ng generate --help
-```
+3. Run the development server:
 
-## Building
+   ```sh
+   ng serve
+   ```
 
-To build the project run:
+4. Open [http://localhost:4200](http://localhost:4200) in your browser.
 
-```bash
-ng build
-```
+### PDF Export
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+- Click the **PDF** button in the toolbar to export all flash cards as a printable PDF.
+- Cards are arranged 3 per row and 3 rows per page, with stylish frames.
 
-## Running unit tests
+## Project Structure
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+- `src/app/app.ts` – Main Angular component and logic.
+- `src/app/app.html` – Component template.
+- `src/app/app.scss` – Styles for the flash cards and layout.
+- Uses [Angular Material](https://material.angular.io/) for UI components.
 
-```bash
-ng test
-```
+## Customization
 
-## Running end-to-end tests
+- To change card content, edit the `cards` array in `app.ts`.
+- To adjust styles, edit `app.scss` or the inline styles in the PDF export logic.
 
-For end-to-end (e2e) testing, run:
+## License
 
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+MIT
