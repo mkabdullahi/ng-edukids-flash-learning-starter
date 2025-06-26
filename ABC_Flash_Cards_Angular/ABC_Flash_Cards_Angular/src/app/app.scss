@@ -1,0 +1,57 @@
+.flashcard-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 300px;
+  margin-bottom: 1.5rem;
+}
+
+.flashcard {
+  background: #fff;
+  border-radius: 3rem;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+  padding: 2rem 3rem;
+  min-width: 260px;
+  min-height: 180px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  outline: none;
+  border: 5px solid #4361ee;
+}
+.flashcard-letter {
+  font-size: 17rem;
+  font-weight: bold;
+  color: #4361ee;
+  margin-bottom: 0.7rem;
+}
+.flashcard-image {
+  font-size: 9rem;
+  margin-bottom: 0.7rem;
+}
+.flashcard-word {
+  font-size: 2rem;
+  color: #333;
+  text-align: center;
+  word-break: break-word;
+  max-width: 95%;
+  line-height: 1.2;
+}
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+.card-index {
+  font-size: 1.2rem;
+  color: #555;
+}
+.export-btn-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5rem;
+}

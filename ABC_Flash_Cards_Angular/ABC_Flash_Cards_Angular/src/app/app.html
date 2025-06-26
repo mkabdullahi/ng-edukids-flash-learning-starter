@@ -1,0 +1,26 @@
+<mat-toolbar color="primary">ABC Flash Cards</mat-toolbar>
+<div class="flashcard-container">
+  <mat-card class="flashcard">
+    <div class="flashcard-letter">{{ cards[currentIndex].letter }}</div>
+    <div class="flashcard-image">{{ cards[currentIndex].image }}</div>
+    <div class="flashcard-word">{{ cards[currentIndex].word }}</div>
+  </mat-card>
+</div>
+<div class="controls">
+  <button mat-fab color="accent" (click)="prevCard()" aria-label="Previous card">
+    <mat-icon>chevron_left</mat-icon>
+  </button>
+  <span class="card-index">{{ currentIndex + 1 }} / {{ cards.length }}</span>
+  <button mat-fab color="accent" (click)="nextCard()" aria-label="Next card">
+    <mat-icon>chevron_right</mat-icon>
+  </button>
+</div>
+<div class="export-btn-container">
+  <button mat-raised-button color="primary" (click)="exportPDF()" aria-label="Export all cards as PDF">
+    <mat-icon>picture_as_pdf</mat-icon>
+    Export All as PDF
+  </button>
+</div>
+
+
+
