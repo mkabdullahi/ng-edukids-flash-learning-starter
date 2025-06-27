@@ -30,7 +30,7 @@ interface FlashCard {
   ],
 })
 export class AppComponent {
-  title = 'ABC Flash Cards';
+  title = 'Flash Cards';
   menu = [
     { label: 'English ABC', value: 'en' },
     { label: 'Arabic Letters', value: 'ar' }
@@ -140,10 +140,10 @@ export class AppComponent {
         card.style.flexDirection = 'column';
         card.style.alignItems = 'center';
         card.style.justifyContent = 'center';
-        card.style.background = 'linear-gradient(135deg, #e0e7ff 0%, #fff 100%)';
+        card.style.background = 'linear-gradient(135deg,rgb(161, 205, 112) 0%, #fff 100%)';
         card.style.borderRadius = '2.5rem';
-        card.style.boxShadow = '0 8px 32px rgba(67,97,238,0.18), 0 1.5px 0 #4361ee inset';
-        card.style.border = '8px double #4361ee';
+        card.style.boxShadow = '0 8px 32px rgba(67,97,238,0.18), 0 1.5px 0rgb(238, 224, 67) inset';
+        card.style.border = '8px doublergb(238, 224, 67)';
         card.style.outline = '4px solid #b8c0ff';
         card.style.fontFamily = 'Arial, sans-serif';
         card.style.position = 'relative';
