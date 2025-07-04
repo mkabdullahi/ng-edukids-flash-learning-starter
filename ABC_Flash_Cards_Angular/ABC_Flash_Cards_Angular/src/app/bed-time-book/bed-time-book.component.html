@@ -1,0 +1,12 @@
+<div class="flip-book-container">
+  <div class="flip-book-page">
+    <h2>{{ pages[currentPage].title }}</h2>
+    <img [src]="pages[currentPage].image" alt="{{ pages[currentPage].title }}" class="flip-book-image" />
+    <p>{{ pages[currentPage].text }}</p>
+  </div>
+  <div class="flip-book-controls">
+    <button mat-raised-button color="primary" (click)="prevPage()" [disabled]="currentPage === 0">Previous</button>
+    <span>Page {{ currentPage + 1 }} / {{ pages.length }}</span>
+    <button mat-raised-button color="primary" (click)="nextPage()" [disabled]="currentPage === pages.length - 1">Next</button>
+  </div>
+</div>

@@ -7,97 +7,59 @@ import { MatMenuModule } from '@angular/material/menu';
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
 import { CommonModule } from '@angular/common';
-
-interface FlashCard {
-  letter: string;
-  word: string;
-  image: string;
-}
+import { FlashCardComponent } from './flash-card/flash-card.component';
+import { FlashCard, ENGLISH_FLASH_CARDS, ARABIC_FLASH_CARDS, NUMBER_FLASH_CARDS } from './flash-card/flash-card.model';
+import { BedTimeBookComponent } from './bed-time-book/bed-time-book.component';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.html',
   styleUrl: './app.scss',
-  standalone: true,
   imports: [
     CommonModule,
     MatToolbarModule,
     MatCardModule,
     MatIconModule,
     MatButtonModule,
-    MatMenuModule
-
+    MatMenuModule,
+    FlashCardComponent,
+    BedTimeBookComponent
   ],
+
 })
 export class AppComponent {
   title = 'Flash Cards';
-  menu = [
-    { label: 'English ABC', value: 'en' },
-    { label: 'Arabic Letters', value: 'ar' }
+  tiles = [
+    { label: 'English ABC', value: 'en', icon: 'language', color: '#b8c0ff' },
+    { label: 'Arabic Letters', value: 'ar', icon: 'translate', color: '#ffd6a5' },
+    { label: 'Numbers', value: 'number', icon: 'looks_3', color: '#b5ead7' },
+    { label: 'Bed Time Book', value: 'bedtime', icon: 'hotel', color: '#f7b2ad' },
   ];
-  selectedSet = 'en';
-  cardsEn: FlashCard[] = [
-    { letter: 'A', word: 'Apple', image: '🍎' },
-    { letter: 'B', word: 'Ball', image: '⚽' },
-    { letter: 'C', word: 'Cat', image: '🐱' },
-    { letter: 'D', word: 'Dog', image: '🐶' },
-    { letter: 'E', word: 'Elephant', image: '🐘' },
-    { letter: 'F', word: 'Fish', image: '🐟' },
-    { letter: 'G', word: 'Giraffe', image: '🦒' },
-    { letter: 'H', word: 'Hat', image: '🎩' },
-    { letter: 'I', word: 'Ice Cream', image: '🍦' },
-    { letter: 'J', word: 'Juice', image: '🧃' },
-    { letter: 'K', word: 'Kite', image: '🪁' },
-    { letter: 'L', word: 'Lion', image: '🦁' },
-    { letter: 'M', word: 'Monkey', image: '🐵' },
-    { letter: 'N', word: 'Nest', image: '🪺' },
-    { letter: 'O', word: 'Orange', image: '🍊' },
-    { letter: 'P', word: 'Penguin', image: '🐧' },
-    { letter: 'Q', word: 'Queen', image: '👸' },
-    { letter: 'R', word: 'Rabbit', image: '🐰' },
-    { letter: 'S', word: 'Sun', image: '☀️' },
-    { letter: 'T', word: 'Tiger', image: '🐯' },
-    { letter: 'U', word: 'Umbrella', image: '☂️' },
-    { letter: 'V', word: 'Violin', image: '🎻' },
-    { letter: 'W', word: 'Whale', image: '🐳' },
-    { letter: 'X', word: 'Xylophone', image: '🎶' },
-    { letter: 'Y', word: 'Yacht', image: '🛥️' },
-    { letter: 'Z', word: 'Zebra', image: '🦓' },
-  ];
-  cardsAr: FlashCard[] = [
-    { letter: 'ا', word: 'أرنب', image: '🐇' },
-    { letter: 'ب', word: 'بطة', image: '🦆' },
-    { letter: 'ت', word: 'تفاح', image: '🍏' },
-    { letter: 'ث', word: 'ثعلب', image: '🦊' },
-    { letter: 'ج', word: 'جمل', image: '🐫' },
-    { letter: 'ح', word: 'حصان', image: '🐎' },
-    { letter: 'خ', word: 'خروف', image: '🐑' },
-    { letter: 'د', word: 'ديك', image: '🐓' },
-    { letter: 'ذ', word: 'ذئب', image: '🐺' },
-    { letter: 'ر', word: 'رمان', image: '🍎' },
-    { letter: 'ز', word: 'زرافة', image: '🦒' },
-    { letter: 'س', word: 'سمكة', image: '🐟' },
-    { letter: 'ش', word: 'شمس', image: '☀️' },
-    { letter: 'ص', word: 'صقر', image: '🦅' },
-    { letter: 'ض', word: 'ضفدع', image: '🐸' },
-    { letter: 'ط', word: 'طاووس', image: '🦚' },
-    { letter: 'ظ', word: 'ظبي', image: '🦌' },
-    { letter: 'ع', word: 'عصفور', image: '🐦' },
-    { letter: 'غ', word: 'غزال', image: '🦌' },
-    { letter: 'ف', word: 'فيل', image: '🐘' },
-    { letter: 'ق', word: 'قرد', image: '🐒' },
-    { letter: 'ك', word: 'كلب', image: '🐶' },
-    { letter: 'ل', word: 'لبن', image: '🥛' },
-    { letter: 'م', word: 'موز', image: '🍌' },
-    { letter: 'ن', word: 'نمر', image: '🐅' },
-    { letter: 'هـ', word: 'هدهد', image: '🦉' },
-    { letter: 'و', word: 'وردة', image: '🌹' },
-    { letter: 'ي', word: 'يمامة', image: '🕊️' },
-  ];
+  selectedSet: string|null = null;
+  cardsEn: FlashCard[] = ENGLISH_FLASH_CARDS;
+  cardsAr: FlashCard[] = ARABIC_FLASH_CARDS;
+  cardsNum: FlashCard[] = NUMBER_FLASH_CARDS;
   currentIndex = 0;
 
   get cards() {
-    return this.selectedSet === 'en' ? this.cardsEn : this.cardsAr;
+    switch (this.selectedSet) {
+      case 'en':
+        return this.cardsEn;
+      case 'ar':
+        return this.cardsAr;
+      case 'number':
+        return this.cardsNum;
+      default:
+        return [];
+    }
+  }
+
+  get showBedTimeBook() {
+    return this.selectedSet === 'bedtime';
+  }
+
+  get showDashboard() {
+    return this.selectedSet === null;
   }
 
   selectSet(set: string) {
@@ -105,18 +67,27 @@ export class AppComponent {
     this.currentIndex = 0;
   }
 
+  goHome() {
+    this.selectedSet = null;
+    this.currentIndex = 0;
+  }
+
+
   prevCard() {
+    if (this.showBedTimeBook) return;
     this.currentIndex = this.currentIndex > 0 ? this.currentIndex - 1 : this.cards.length - 1;
   }
   nextCard() {
+    if (this.showBedTimeBook) return;
     this.currentIndex = this.currentIndex < this.cards.length - 1 ? this.currentIndex + 1 : 0;
   }
 
   get selectedMenuLabel() {
-    const selected = this.menu.find(m => m.value === this.selectedSet);
+    const selected = this.tiles.find(m => m.value === this.selectedSet);
     return selected ? selected.label : '';
   }
   async exportPDF() {
+    if (this.showBedTimeBook) return; // PDF export not supported for bedtime book
     const cardsPerRow = 3;
     const cardWidth = 130;
     const cardHeight = 230;
@@ -148,13 +119,34 @@ export class AppComponent {
         card.style.fontFamily = 'Arial, sans-serif';
         card.style.position = 'relative';
 
+        let imageHtml = '';
+        if (this.selectedSet === 'number') {
+          const num = Number(this.cards[cardIndex].letter);
+          if (!isNaN(num) && num > 0) {
+            // Show up to 3 images per row, wrap to next line after 3
+            const perRow = 3;
+            let rows: string[] = [];
+            let count = 0;
+            while (count < num) {
+              let rowImages = '';
+              for (let k = 0; k < perRow && count < num; k++, count++) {
+                rowImages += `<span style="font-size:2.5rem;margin:0 0.2rem;">${this.cards[cardIndex].image}</span>`;
+              }
+              rows.push(`<div style="display:flex;justify-content:center;margin-bottom:0.2rem;">${rowImages}</div>`);
+            }
+            imageHtml = rows.join('');
+          } else {
+            imageHtml = `<div style="font-size:2.5rem;margin-bottom:0.7rem;line-height:1;text-shadow:0 2px 8px #b8c0ff;">${this.cards[cardIndex].image}</div>`;
+          }
+        } else {
+          imageHtml = `<div style="font-size:2.5rem;margin-bottom:0.7rem;line-height:1;text-shadow:0 2px 8px #b8c0ff;">${this.cards[cardIndex].image}</div>`;
+        }
 
         card.innerHTML = `
             <div style="font-size:4rem;font-weight:bold;color:#000;margin-bottom:0.7rem;line-height:1;text-shadow:0 2px 8px #b8c0ff;">${this.cards[cardIndex].letter}</div>
-            <div style="font-size:2.5rem;margin-bottom:0.7rem;line-height:1;text-shadow:0 2px 8px #b8c0ff;">${this.cards[cardIndex].image}</div>
+            <div>${imageHtml}</div>
             <div style="font-size:1.3rem;color:#333;text-align:center;word-break:break-word;line-height:1.1;background:rgba(255,255,255,0.7);padding:0.2em 0.7em;border-radius:1em;box-shadow:0 1px 4px #b8c0ff;">${this.cards[cardIndex].word}</div>
-
-          `;
+        `;
         document.body.appendChild(card);
         // eslint-disable-next-line no-await-in-loop
         const canvas = await html2canvas(card, { backgroundColor: '#fff', scale: 2 });
