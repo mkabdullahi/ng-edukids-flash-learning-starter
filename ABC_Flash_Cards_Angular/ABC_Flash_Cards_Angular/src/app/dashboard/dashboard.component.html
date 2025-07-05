@@ -1,0 +1,6 @@
+<div class="dashboard-tiles">
+  <div *ngFor="let tile of tiles" class="dashboard-tile" [ngStyle]="{'background': tile.color}" [routerLink]="tile.route">
+    <mat-icon style="font-size:3rem;">{{ tile.icon }}</mat-icon>
+    <div class="tile-label">{{ tile.label }}</div>
+  </div>
+</div>

@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { MatButtonModule } from '@angular/material/button';
 
 interface BedTimeBookPage {
   title: string;
@@ -9,7 +11,9 @@ interface BedTimeBookPage {
 @Component({
   selector: 'app-bed-time-book',
   templateUrl: './bed-time-book.component.html',
-  styleUrls: ['./bed-time-book.component.scss']
+  styleUrls: ['./bed-time-book.component.scss'],
+  standalone: true,
+  imports: [CommonModule, MatButtonModule]
 })
 export class BedTimeBookComponent {
   pages: BedTimeBookPage[] = [

@@ -1,50 +1,6 @@
 
-<mat-toolbar color="primary">
-  <span style="cursor:pointer;" (click)="goHome()">ABC Flash Cards</span>
-  <span class="spacer"></span>
-  <ng-container *ngIf="!showDashboard">
-    <button mat-button (click)="goHome()">
-      <mat-icon>home</mat-icon>
-      Home
-    </button>
-    <span style="margin-left:1rem;font-weight:600;">{{ selectedMenuLabel }}</span>
-  </ng-container>
-</mat-toolbar>
 
-<div *ngIf="showDashboard" class="dashboard-tiles">
-  <div *ngFor="let tile of tiles" class="dashboard-tile" [ngStyle]="{'background': tile.color}" (click)="selectSet(tile.value)">
-    <mat-icon style="font-size:3rem;">{{ tile.icon }}</mat-icon>
-    <div class="tile-label">{{ tile.label }}</div>
-  </div>
-</div>
-
-<ng-container *ngIf="!showDashboard && !showBedTimeBook">
-  <div class="flashcard-container">
-    <app-flash-card
-      [letter]="cards[currentIndex].letter"
-      [image]="cards[currentIndex].image"
-      [word]="cards[currentIndex].word">
-    </app-flash-card>
-  </div>
-  <div class="controls">
-    <button mat-fab color="accent" (click)="prevCard()" aria-label="Previous card">
-      <mat-icon>chevron_left</mat-icon>
-    </button>
-    <span class="card-index">{{ currentIndex + 1 }} / {{ cards.length }}</span>
-    <button mat-fab color="accent" (click)="nextCard()" aria-label="Next card">
-      <mat-icon>chevron_right</mat-icon>
-    </button>
-  </div>
-  <div class="export-btn-container">
-    <button mat-raised-button color="primary" (click)="exportPDF()" aria-label="Export all cards as PDF">
-      <mat-icon>picture_as_pdf</mat-icon>
-      Export All as PDF
-    </button>
-  </div>
-</ng-container>
-<ng-container *ngIf="!showDashboard && showBedTimeBook">
-  <app-bed-time-book></app-bed-time-book>
-</ng-container>
+<!-- All logic is now handled by router-outlet in app.ts -->
 
 
 
