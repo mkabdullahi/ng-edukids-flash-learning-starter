@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="refresh" content="0; url=./index.html">
+    <script>
+      // For client-side routing fallback
+      var redirect = window.location.pathname.replace(/\\/+/g, '/');
+      if (redirect !== '/' && redirect !== '/index.html') {
+        window.location.replace('/ng-edukids-flash-learning-starter/index.html?redirect=' + encodeURIComponent(redirect));
+      }
+    </script>
+  </head>
+  <body></body>
+</html>
