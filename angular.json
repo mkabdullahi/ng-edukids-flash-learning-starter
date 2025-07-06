@@ -62,10 +62,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "ABC_Flash_Cards_Angular:build:production"
+              "buildTarget": "ng-edukids-flash-learning-starter:build:production"
             },
             "development": {
-              "buildTarget": "ABC_Flash_Cards_Angular:build:development"
+              "buildTarget": "ng-edukids-flash-learning-starter:build:development"
             }
           },
           "defaultConfiguration": "development"
