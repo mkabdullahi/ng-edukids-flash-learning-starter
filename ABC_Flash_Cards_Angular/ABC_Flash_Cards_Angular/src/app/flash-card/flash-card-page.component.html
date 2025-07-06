@@ -1,3 +1,11 @@
+<div class="flashcard-header">
+  <ng-container [ngSwitch]="set">
+    <h2 *ngSwitchCase="'english'">You are playing: <span class="flashcard-title">ABC Flash Cards</span></h2>
+    <h2 *ngSwitchCase="'arabic'">You are playing: <span class="flashcard-title">Arabic Letters</span></h2>
+    <h2 *ngSwitchCase="'numbers'">You are playing: <span class="flashcard-title">Numbers</span></h2>
+    <h2 *ngSwitchDefault>You are playing: <span class="flashcard-title">Flash Cards</span></h2>
+  </ng-container>
+</div>
 <div class="flashcard-container">
   <app-flash-card
     [letter]="cards[currentIndex].letter"

@@ -12,15 +12,15 @@ import { filter } from 'rxjs';
   selector: 'app-root',
   template: `
     <mat-toolbar color="primary">
-      <button mat-icon-button [routerLink]="['/']" aria-label="Home" style="margin-right:0.5rem;">
+      <button mat-icon-button [routerLink]="['/']" aria-label="Home" class="toolbar-home-btn">
         <mat-icon>home</mat-icon>
       </button>
-      <span style="font-weight:600;font-size:1.3rem;letter-spacing:0.04em;user-select:none;">
+      <span class="toolbar-title">
         Kids' Learning Starter
       </span>
       <span class="spacer"></span>
       <ng-container *ngIf="currentRouteLabel">
-        <span style="margin-left:2rem; font-size:1.3rem;color:#fffbe6;font-weight:400;letter-spacing:0.02em;">
+        <span class="toolbar-section-label">
           {{ currentRouteLabel }}
         </span>
       </ng-container>

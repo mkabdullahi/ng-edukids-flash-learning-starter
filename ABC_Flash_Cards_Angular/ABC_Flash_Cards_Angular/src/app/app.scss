@@ -1,3 +1,23 @@
+// App Toolbar Styles
+.toolbar-home-btn {
+  margin-right: 0.5rem;
+}
+.toolbar-title {
+  font-weight: 600;
+  font-size: 1.3rem;
+  letter-spacing: 0.04em;
+  user-select: none;
+}
+.toolbar-section-label {
+  margin-left: 2rem;
+  font-size: 1.3rem;
+  color: #fffbe6;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+.spacer {
+  flex: 1 1 auto;
+}
 // Dashboard Tiles
 .dashboard-tiles {
   display: flex;

@@ -1,3 +1,29 @@
+.flip-book-header {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+}
+.flip-book-header h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #5a189a;
+  letter-spacing: 0.02em;
+}
+.flip-book-header .book-title {
+  color: #22223b;
+  font-weight: 700;
+}
+.cover-desc.back-goodnight {
+  margin-bottom: 0;
+}
+.back-goodnight-span {
+  font-size: 1.1rem;
+  color: #5a189a;
+  font-weight: 600;
+}
 
 .flip-book-container {
   display: flex;
