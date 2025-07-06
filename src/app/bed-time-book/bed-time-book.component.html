@@ -8,7 +8,7 @@
     </button>
   </div>
   <ng-container *ngIf="isCover; else bookPages">
-    <div class="flip-book-cover">
+    <div class="flip-book-cover" data-testid="bedtime-book-cover">
       <img src="assets/bedtime/cover.png" alt="Book Cover" class="cover-image" />
       <h1 class="cover-title">Kids' Bedtime Adventure</h1>
       <p class="cover-desc">A magical storybook for sweet dreams.<br>Tap next to begin your adventure!</p>
@@ -24,19 +24,19 @@
     </ng-container>
     <ng-template #normalPages>
       <div class="flip-book-pages" [class.single-page]="!doublePageMode">
-        <div class="flip-book-page" *ngIf="doublePageMode">
+        <div class="flip-book-page" *ngIf="doublePageMode" data-testid="bedtime-book-page">
           <h2>{{ pages[leftPageIndex].title }}</h2>
-          <img [src]="pages[leftPageIndex].image" alt="{{ pages[leftPageIndex].title }}" class="flip-book-image" />
+          <img [src]="pages[leftPageIndex].image" alt="{{ pages[leftPageIndex].title }}" class="flip-book-image" [attr.data-testid]="'bedtime-illustration-' + leftPageIndex" />
           <p>{{ pages[leftPageIndex].text }}</p>
         </div>
-        <div class="flip-book-page" *ngIf="doublePageMode && pages[rightPageIndex] && rightPageIndex !== pages.length - 1">
+        <div class="flip-book-page" *ngIf="doublePageMode && pages[rightPageIndex] && rightPageIndex !== pages.length - 1" data-testid="bedtime-book-page">
           <h2>{{ pages[rightPageIndex].title }}</h2>
-          <img [src]="pages[rightPageIndex].image" alt="{{ pages[rightPageIndex].title }}" class="flip-book-image" />
+          <img [src]="pages[rightPageIndex].image" alt="{{ pages[rightPageIndex].title }}" class="flip-book-image" [attr.data-testid]="'bedtime-illustration-' + rightPageIndex" />
           <p>{{ pages[rightPageIndex].text }}</p>
         </div>
-        <div class="flip-book-page" *ngIf="!doublePageMode">
+        <div class="flip-book-page" *ngIf="!doublePageMode" data-testid="bedtime-book-page">
           <h2>{{ pages[currentPage].title }}</h2>
-          <img [src]="pages[currentPage].image" alt="{{ pages[currentPage].title }}" class="flip-book-image" />
+          <img [src]="pages[currentPage].image" alt="{{ pages[currentPage].title }}" class="flip-book-image" [attr.data-testid]="'bedtime-illustration-' + currentPage" />
           <p>{{ pages[currentPage].text }}</p>
         </div>
       </div>
@@ -52,6 +52,6 @@
         Page {{ currentPage }} / {{ pages.length - 1 }}
       </ng-template>
     </span>
-    <button mat-raised-button color="primary" (click)="nextPage()" [disabled]="(doublePageMode && currentPage >= pages.length - 2) || (!doublePageMode && currentPage >= pages.length - 1)">Next</button>
+    <button mat-raised-button color="primary" (click)="nextPage()" [disabled]="(doublePageMode && currentPage >= pages.length - 2) || (!doublePageMode && currentPage >= pages.length - 1)" data-testid="next-page-btn">Next</button>
   </div>
 </div>
