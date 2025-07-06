@@ -1,0 +1,36 @@
+.flashcard-header {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+}
+.flashcard-header h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #5a189a;
+  letter-spacing: 0.02em;
+}
+.flashcard-header .flashcard-title {
+  color: #22223b;
+  font-weight: 700;
+}
+.flashcard-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 300px;
+  margin-bottom: 1.5rem;
+}
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+.card-index {
+  font-size: 1.2rem;
+  color: #555;
+}
