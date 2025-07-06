@@ -3,7 +3,7 @@ import "./chunk-XQDSWCFU.js";
 import {
   MatCommonModule,
   Platform
-} from "./chunk-XJI4PKTA.js";
+} from "./chunk-4TOHMWKG.js";
 import "./chunk-D7KMPKFJ.js";
 import "./chunk-6AJUUUJE.js";
 import {

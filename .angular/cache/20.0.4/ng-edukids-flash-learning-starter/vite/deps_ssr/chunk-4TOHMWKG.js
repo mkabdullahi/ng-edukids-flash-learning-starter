@@ -2869,15 +2869,15 @@ var MatCommonModule = class _MatCommonModule {
 })();
 
 export {
-  Platform,
-  normalizePassiveListenerOptions,
-  _getEventTarget,
   isFakeMousedownFromScreenReader,
   isFakeTouchstartFromScreenReader,
+  _getEventTarget,
+  Platform,
+  normalizePassiveListenerOptions,
   coerceElement,
   FocusMonitor,
   _CdkPrivateStyleLoader,
   MediaMatcher,
   MatCommonModule
 };
-//# sourceMappingURL=chunk-XJI4PKTA.js.map
+//# sourceMappingURL=chunk-4TOHMWKG.js.map
