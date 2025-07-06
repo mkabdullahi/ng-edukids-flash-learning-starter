@@ -4425,8 +4425,6 @@ function provideClientHydration(...features) {
 var VERSION = new Version("20.0.5");
 
 export {
-  HttpClient,
-  HTTP_ROOT_INTERCEPTOR_FNS,
   EVENT_MANAGER_PLUGINS,
   EventManager,
   EventManagerPlugin,
@@ -4442,6 +4440,8 @@ export {
   provideProtractorTestingSupport,
   platformBrowser,
   BrowserModule,
+  HttpClient,
+  HTTP_ROOT_INTERCEPTOR_FNS,
   Meta,
   Title,
   enableDebugTools,
@@ -4476,4 +4476,4 @@ export {
    * License: MIT
    *)
 */
-//# sourceMappingURL=chunk-IOGR77IY.js.map
+//# sourceMappingURL=chunk-A2EBZXE2.js.map

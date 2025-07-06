@@ -66,8 +66,24 @@ A stylish, interactive learning web app for toddlers, built with Angular and Ang
 - Uses Angular Reactive Forms for any form handling and validation.
 - State is managed using Angular services for simplicity and maintainability.
 
+
 ### Testing
 - Unit tests are provided for components and services using Angular's testing utilities.
+- End-to-end (E2E) tests are written with [Cypress](https://www.cypress.io/):
+  - `cypress/e2e/flash-cards.cy.ts` – E2E tests for the Flash Cards feature (navigation, PDF export, etc.)
+  - `cypress/e2e/bedtime-book.cy.ts` – E2E tests for the Bedtime Book feature (cover, navigation, illustrations)
+
+#### Running Cypress Tests
+
+1. Start the development server:
+   ```sh
+   ng serve
+   ```
+2. In another terminal, open Cypress:
+   ```sh
+   npx cypress open
+   ```
+3. Select a test to run in the Cypress UI.
 
 ## Customization
 
