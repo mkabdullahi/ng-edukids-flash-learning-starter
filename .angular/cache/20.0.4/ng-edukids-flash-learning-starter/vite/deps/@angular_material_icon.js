@@ -1,11 +1,11 @@
 import {
-  DomSanitizer,
-  HttpClient
-} from "./chunk-W2YLQZKE.js";
-import {
   MatCommonModule
 } from "./chunk-F467RTH3.js";
 import "./chunk-XJIVC556.js";
+import {
+  DomSanitizer,
+  HttpClient
+} from "./chunk-W2YLQZKE.js";
 import "./chunk-BTWMHIXJ.js";
 import {
   ChangeDetectionStrategy,

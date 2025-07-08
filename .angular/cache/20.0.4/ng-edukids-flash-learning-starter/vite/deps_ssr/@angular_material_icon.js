@@ -6,7 +6,7 @@ import "./chunk-D7KMPKFJ.js";
 import {
   DomSanitizer,
   HttpClient
-} from "./chunk-A2EBZXE2.js";
+} from "./chunk-IOGR77IY.js";
 import "./chunk-6AJUUUJE.js";
 import {
   ChangeDetectionStrategy,

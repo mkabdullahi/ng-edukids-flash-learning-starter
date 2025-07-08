@@ -49,11 +49,10 @@
         <div class="flip-book-page" *ngIf="!doublePageMode" data-testid="bedtime-book-page">
           <h2>{{ pages[currentPage].title }}</h2>
           <img [src]="pages[currentPage].image" alt="{{ pages[currentPage].title }}" class="flip-book-image" [attr.data-testid]="'bedtime-illustration-' + currentPage" />
-          <p>{{ pages[currentPage].text }}</p>
-          <p>{{ pages[currentPage].text }}</p>
           <div class="img-attribution small-attribution">
             <a href="https://www.vecteezy.com/free/vector/3d" target="_blank" rel="noopener">3d Vectors by Vecteezy</a>
           </div>
+          <p>{{ pages[currentPage].text }}</p>
         </div>
       </div>
     </ng-template>
