@@ -1,6 +1,15 @@
 <div class="dashboard-tiles">
   <div *ngFor="let tile of tiles" class="dashboard-tile" [ngStyle]="{'background': tile.color}" [routerLink]="tile.route">
-    <mat-icon class="dashboard-tile-icon">{{ tile.icon }}</mat-icon>
+    <div class="dashboard-tile-icon">
+      <ng-container *ngIf="tile.route !== '/bedtime'; else bedIcon">
+        {{tile.iconSymbol}}
+      </ng-container>
+      <ng-template #bedIcon>
+        <img src="assets/bedtime/bed_icon.png" 
+             alt="Bed Time Book"
+             class="bedtime-icon">
+      </ng-template>
+    </div>
     <div class="tile-label">{{ tile.label }}</div>
   </div>
 </div>

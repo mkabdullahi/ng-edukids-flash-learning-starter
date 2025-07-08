@@ -1,20 +1,24 @@
 .dashboard-tile-icon {
-  font-size: 3rem;
+  font-size: 2.3rem;
 }
 .dashboard-tiles {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 2rem;
-  margin: 3rem 0 2rem 0;
+  max-width: 800px;
+  margin: 3rem auto 2rem;
 }
 .dashboard-tile {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 180px;
-  height: 180px;
+  flex: 0 0 48%; /* Exact width for 2 columns (48% * 2 = 96% + 4% gap) */
+  max-width: 384px; /* 800px container * 48% */
+  min-width: 280px; /* Allows 2 tiles on 600px screens (280*2 + 40) */
+  height: 333px;
+  box-sizing: border-box; /* Include border in width calculation */
   border-radius: 2rem;
   box-shadow: 0 4px 24px rgba(67,97,238,0.10);
   cursor: pointer;
@@ -33,4 +37,32 @@
   font-size: 1.25rem;
   color: #222;
   text-align: center;
+}
+
+/* dashboard.component.scss */
+.dashboard-tile-icon {
+  /* Default LTR styles */
+  direction: ltr;
+  unicode-bidi: bidi-override;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* Arabic text styling */
+.dashboard-tile[routerlink="/arabic"] .dashboard-tile-icon {
+  direction: rtl;
+  unicode-bidi: plaintext;
+  font-family: 'Noto Sans Arabic', sans-serif;
+  font-size: 1.7em;
+  letter-spacing: -3px;
+}
+
+.bedtime-icon {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
 }
