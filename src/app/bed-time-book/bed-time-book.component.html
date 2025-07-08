@@ -58,7 +58,7 @@
     </ng-template>
   </ng-template>
   <div class="flip-book-controls">
-    <button mat-raised-button color="primary" (click)="prevPage()" [disabled]="currentPage === 0">Previous</button>
+    <button mat-raised-button color="primary" (click)="prevPage()" [disabled]="currentPage === 0" data-testid="previous-page-btn">Previous</button>
     <span *ngIf="!isCover">
       <ng-container *ngIf="doublePageMode; else singlePageCount">
         Pages {{ currentPage }}-{{ (currentPage + 1) < pages.length ? (currentPage + 1) : (pages.length - 1) }} / {{ pages.length - 1 }}
