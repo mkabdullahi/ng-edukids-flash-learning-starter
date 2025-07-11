@@ -1,1 +1,26 @@
-node_modules
+# Dependencies
+node_modules/
+
+# Angular
+.angular/
+*.tsbuildinfo
+
+# IDE and OS
+.DS_Store
+
+# Testing
+cypress/downloads/
+cypress/screenshots/
+
+# Build artifacts
+dist/
+server/
+
+# Local development
+.env.local
+.env.*.local
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*

@@ -1,10 +1,12 @@
 import { createRequire } from 'module';const require = createRequire(import.meta.url);
 import {
+  Platform,
+  coerceElement,
+  coerceNumberProperty
+} from "./chunk-3FMWX5AH.js";
+import {
   BidiModule
 } from "./chunk-D7KMPKFJ.js";
-import {
-  isPlatformBrowser
-} from "./chunk-6AJUUUJE.js";
 import {
   APP_ID,
   ApplicationRef,
@@ -23,7 +25,6 @@ import {
   NgModule,
   NgZone,
   Output,
-  PLATFORM_ID,
   QueryList,
   RendererFactory2,
   ViewEncapsulation,
@@ -48,148 +49,19 @@ import {
   __toESM
 } from "./chunk-6DU2HRTW.js";
 
-// node_modules/@angular/cdk/fesm2022/platform-DNDzkVcI.mjs
-var hasV8BreakIterator;
-try {
-  hasV8BreakIterator = typeof Intl !== "undefined" && Intl.v8BreakIterator;
-} catch {
-  hasV8BreakIterator = false;
-}
-var Platform = class _Platform {
-  _platformId = inject(PLATFORM_ID);
-  // We want to use the Angular platform check because if the Document is shimmed
-  // without the navigator, the following checks will fail. This is preferred because
-  // sometimes the Document may be shimmed without the user's knowledge or intention
-  /** Whether the Angular application is being rendered in the browser. */
-  isBrowser = this._platformId ? isPlatformBrowser(this._platformId) : typeof document === "object" && !!document;
-  /** Whether the current browser is Microsoft Edge. */
-  EDGE = this.isBrowser && /(edge)/i.test(navigator.userAgent);
-  /** Whether the current rendering engine is Microsoft Trident. */
-  TRIDENT = this.isBrowser && /(msie|trident)/i.test(navigator.userAgent);
-  // EdgeHTML and Trident mock Blink specific things and need to be excluded from this check.
-  /** Whether the current rendering engine is Blink. */
-  BLINK = this.isBrowser && !!(window.chrome || hasV8BreakIterator) && typeof CSS !== "undefined" && !this.EDGE && !this.TRIDENT;
-  // Webkit is part of the userAgent in EdgeHTML, Blink and Trident. Therefore we need to
-  // ensure that Webkit runs standalone and is not used as another engine's base.
-  /** Whether the current rendering engine is WebKit. */
-  WEBKIT = this.isBrowser && /AppleWebKit/i.test(navigator.userAgent) && !this.BLINK && !this.EDGE && !this.TRIDENT;
-  /** Whether the current platform is Apple iOS. */
-  IOS = this.isBrowser && /iPad|iPhone|iPod/.test(navigator.userAgent) && !("MSStream" in window);
-  // It's difficult to detect the plain Gecko engine, because most of the browsers identify
-  // them self as Gecko-like browsers and modify the userAgent's according to that.
-  // Since we only cover one explicit Firefox case, we can simply check for Firefox
-  // instead of having an unstable check for Gecko.
-  /** Whether the current browser is Firefox. */
-  FIREFOX = this.isBrowser && /(firefox|minefield)/i.test(navigator.userAgent);
-  /** Whether the current platform is Android. */
-  // Trident on mobile adds the android platform to the userAgent to trick detections.
-  ANDROID = this.isBrowser && /android/i.test(navigator.userAgent) && !this.TRIDENT;
-  // Safari browsers will include the Safari keyword in their userAgent. Some browsers may fake
-  // this and just place the Safari keyword in the userAgent. To be more safe about Safari every
-  // Safari browser should also use Webkit as its layout engine.
-  /** Whether the current browser is Safari. */
-  SAFARI = this.isBrowser && /safari/i.test(navigator.userAgent) && this.WEBKIT;
-  constructor() {
-  }
-  static ɵfac = function Platform_Factory(__ngFactoryType__) {
-    return new (__ngFactoryType__ || _Platform)();
-  };
-  static ɵprov = ɵɵdefineInjectable({
-    token: _Platform,
-    factory: _Platform.ɵfac,
-    providedIn: "root"
-  });
-};
-(() => {
-  (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(Platform, [{
-    type: Injectable,
-    args: [{
-      providedIn: "root"
-    }]
-  }], () => [], null);
-})();
+// node_modules/@angular/cdk/fesm2022/keycodes-CpHkExLC.mjs
+var SHIFT = 16;
+var CONTROL = 17;
+var ALT = 18;
+var ESCAPE = 27;
+var ZERO = 48;
+var NINE = 57;
+var A = 65;
+var Z = 90;
+var META = 91;
+var MAC_META = 224;
 
-// node_modules/@angular/cdk/fesm2022/style-loader-B2sGQXxD.mjs
-var appsWithLoaders = /* @__PURE__ */ new WeakMap();
-var _CdkPrivateStyleLoader = class __CdkPrivateStyleLoader {
-  _appRef;
-  _injector = inject(Injector);
-  _environmentInjector = inject(EnvironmentInjector);
-  /**
-   * Loads a set of styles.
-   * @param loader Component which will be instantiated to load the styles.
-   */
-  load(loader) {
-    const appRef = this._appRef = this._appRef || this._injector.get(ApplicationRef);
-    let data = appsWithLoaders.get(appRef);
-    if (!data) {
-      data = {
-        loaders: /* @__PURE__ */ new Set(),
-        refs: []
-      };
-      appsWithLoaders.set(appRef, data);
-      appRef.onDestroy(() => {
-        appsWithLoaders.get(appRef)?.refs.forEach((ref) => ref.destroy());
-        appsWithLoaders.delete(appRef);
-      });
-    }
-    if (!data.loaders.has(loader)) {
-      data.loaders.add(loader);
-      data.refs.push(createComponent(loader, {
-        environmentInjector: this._environmentInjector
-      }));
-    }
-  }
-  static ɵfac = function _CdkPrivateStyleLoader_Factory(__ngFactoryType__) {
-    return new (__ngFactoryType__ || __CdkPrivateStyleLoader)();
-  };
-  static ɵprov = ɵɵdefineInjectable({
-    token: __CdkPrivateStyleLoader,
-    factory: __CdkPrivateStyleLoader.ɵfac,
-    providedIn: "root"
-  });
-};
-(() => {
-  (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(_CdkPrivateStyleLoader, [{
-    type: Injectable,
-    args: [{
-      providedIn: "root"
-    }]
-  }], null, null);
-})();
-
-// node_modules/@angular/cdk/fesm2022/private.mjs
-var _VisuallyHiddenLoader = class __VisuallyHiddenLoader {
-  static ɵfac = function _VisuallyHiddenLoader_Factory(__ngFactoryType__) {
-    return new (__ngFactoryType__ || __VisuallyHiddenLoader)();
-  };
-  static ɵcmp = ɵɵdefineComponent({
-    type: __VisuallyHiddenLoader,
-    selectors: [["ng-component"]],
-    exportAs: ["cdkVisuallyHidden"],
-    decls: 0,
-    vars: 0,
-    template: function _VisuallyHiddenLoader_Template(rf, ctx) {
-    },
-    styles: [".cdk-visually-hidden{border:0;clip:rect(0 0 0 0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px;white-space:nowrap;outline:0;-webkit-appearance:none;-moz-appearance:none;left:0}[dir=rtl] .cdk-visually-hidden{left:auto;right:0}\n"],
-    encapsulation: 2,
-    changeDetection: 0
-  });
-};
-(() => {
-  (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(_VisuallyHiddenLoader, [{
-    type: Component,
-    args: [{
-      exportAs: "cdkVisuallyHidden",
-      encapsulation: ViewEncapsulation.None,
-      template: "",
-      changeDetection: ChangeDetectionStrategy.OnPush,
-      styles: [".cdk-visually-hidden{border:0;clip:rect(0 0 0 0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px;white-space:nowrap;outline:0;-webkit-appearance:none;-moz-appearance:none;left:0}[dir=rtl] .cdk-visually-hidden{left:auto;right:0}\n"]
-    }]
-  }], null, null);
-})();
-
-// node_modules/@angular/cdk/fesm2022/focus-monitor-DLjkiju1.mjs
+// node_modules/@angular/cdk/fesm2022/focus-monitor-DUe99AIS.mjs
 var import_rxjs = __toESM(require_cjs(), 1);
 var import_operators = __toESM(require_operators(), 1);
 
@@ -201,17 +73,6 @@ function isFakeTouchstartFromScreenReader(event) {
   const touch = event.touches && event.touches[0] || event.changedTouches && event.changedTouches[0];
   return !!touch && touch.identifier === -1 && (touch.radiusX == null || touch.radiusX === 1) && (touch.radiusY == null || touch.radiusY === 1);
 }
-
-// node_modules/@angular/cdk/fesm2022/keycodes-CpHkExLC.mjs
-var SHIFT = 16;
-var CONTROL = 17;
-var ALT = 18;
-var ZERO = 48;
-var NINE = 57;
-var A = 65;
-var Z = 90;
-var META = 91;
-var MAC_META = 224;
 
 // node_modules/@angular/cdk/fesm2022/shadow-dom-B0oHn41l.mjs
 var shadowDomIsSupported;
@@ -265,21 +126,7 @@ function normalizePassiveListenerOptions(options) {
   return supportsPassiveEventListeners() ? options : !!options.capture;
 }
 
-// node_modules/@angular/cdk/fesm2022/element-x4z00URv.mjs
-function coerceNumberProperty(value, fallbackValue = 0) {
-  if (_isNumberValue(value)) {
-    return Number(value);
-  }
-  return arguments.length === 2 ? fallbackValue : 0;
-}
-function _isNumberValue(value) {
-  return !isNaN(parseFloat(value)) && !isNaN(Number(value));
-}
-function coerceElement(elementOrRef) {
-  return elementOrRef instanceof ElementRef ? elementOrRef.nativeElement : elementOrRef;
-}
-
-// node_modules/@angular/cdk/fesm2022/focus-monitor-DLjkiju1.mjs
+// node_modules/@angular/cdk/fesm2022/focus-monitor-DUe99AIS.mjs
 var INPUT_MODALITY_DETECTOR_OPTIONS = new InjectionToken("cdk-input-modality-detector-options");
 var INPUT_MODALITY_DETECTOR_DEFAULT_OPTIONS = {
   ignoreKeys: [ALT, CONTROL, MAC_META, META, SHIFT]
@@ -440,9 +287,7 @@ var FocusMonitor = class _FocusMonitor {
     this._windowFocusTimeoutId = setTimeout(() => this._windowFocused = false);
   };
   /** Used to reference correct document/window */
-  _document = inject(DOCUMENT, {
-    optional: true
-  });
+  _document = inject(DOCUMENT);
   /** Subject for stopping our InputModalityDetector subscription. */
   _stopInputModalityDetector = new import_rxjs.Subject();
   constructor() {
@@ -470,7 +315,7 @@ var FocusMonitor = class _FocusMonitor {
     if (!this._platform.isBrowser || nativeElement.nodeType !== 1) {
       return (0, import_rxjs.of)();
     }
-    const rootNode = _getShadowRoot(nativeElement) || this._getDocument();
+    const rootNode = _getShadowRoot(nativeElement) || this._document;
     const cachedInfo = this._elementInfo.get(nativeElement);
     if (cachedInfo) {
       if (checkChildren) {
@@ -499,7 +344,7 @@ var FocusMonitor = class _FocusMonitor {
   }
   focusVia(element, origin, options) {
     const nativeElement = coerceElement(element);
-    const focusedElement = this._getDocument().activeElement;
+    const focusedElement = this._document.activeElement;
     if (nativeElement === focusedElement) {
       this._getClosestElementsInfo(nativeElement).forEach(([currentElement, info]) => this._originChanged(currentElement, origin, info));
     } else {
@@ -512,14 +357,9 @@ var FocusMonitor = class _FocusMonitor {
   ngOnDestroy() {
     this._elementInfo.forEach((_info, element) => this.stopMonitoring(element));
   }
-  /** Access injected document if available or fallback to global document reference */
-  _getDocument() {
-    return this._document || document;
-  }
   /** Use defaultView of injected document if available or fallback to global window reference */
   _getWindow() {
-    const doc = this._getDocument();
-    return doc.defaultView || window;
+    return this._document.defaultView || window;
   }
   _getFocusOrigin(focusEventTarget) {
     if (this._origin) {
@@ -764,6 +604,86 @@ var CdkMonitorFocus = class _CdkMonitorFocus {
       type: Output
     }]
   });
+})();
+
+// node_modules/@angular/cdk/fesm2022/style-loader-B2sGQXxD.mjs
+var appsWithLoaders = /* @__PURE__ */ new WeakMap();
+var _CdkPrivateStyleLoader = class __CdkPrivateStyleLoader {
+  _appRef;
+  _injector = inject(Injector);
+  _environmentInjector = inject(EnvironmentInjector);
+  /**
+   * Loads a set of styles.
+   * @param loader Component which will be instantiated to load the styles.
+   */
+  load(loader) {
+    const appRef = this._appRef = this._appRef || this._injector.get(ApplicationRef);
+    let data = appsWithLoaders.get(appRef);
+    if (!data) {
+      data = {
+        loaders: /* @__PURE__ */ new Set(),
+        refs: []
+      };
+      appsWithLoaders.set(appRef, data);
+      appRef.onDestroy(() => {
+        appsWithLoaders.get(appRef)?.refs.forEach((ref) => ref.destroy());
+        appsWithLoaders.delete(appRef);
+      });
+    }
+    if (!data.loaders.has(loader)) {
+      data.loaders.add(loader);
+      data.refs.push(createComponent(loader, {
+        environmentInjector: this._environmentInjector
+      }));
+    }
+  }
+  static ɵfac = function _CdkPrivateStyleLoader_Factory(__ngFactoryType__) {
+    return new (__ngFactoryType__ || __CdkPrivateStyleLoader)();
+  };
+  static ɵprov = ɵɵdefineInjectable({
+    token: __CdkPrivateStyleLoader,
+    factory: __CdkPrivateStyleLoader.ɵfac,
+    providedIn: "root"
+  });
+};
+(() => {
+  (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(_CdkPrivateStyleLoader, [{
+    type: Injectable,
+    args: [{
+      providedIn: "root"
+    }]
+  }], null, null);
+})();
+
+// node_modules/@angular/cdk/fesm2022/private.mjs
+var _VisuallyHiddenLoader = class __VisuallyHiddenLoader {
+  static ɵfac = function _VisuallyHiddenLoader_Factory(__ngFactoryType__) {
+    return new (__ngFactoryType__ || __VisuallyHiddenLoader)();
+  };
+  static ɵcmp = ɵɵdefineComponent({
+    type: __VisuallyHiddenLoader,
+    selectors: [["ng-component"]],
+    exportAs: ["cdkVisuallyHidden"],
+    decls: 0,
+    vars: 0,
+    template: function _VisuallyHiddenLoader_Template(rf, ctx) {
+    },
+    styles: [".cdk-visually-hidden{border:0;clip:rect(0 0 0 0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px;white-space:nowrap;outline:0;-webkit-appearance:none;-moz-appearance:none;left:0}[dir=rtl] .cdk-visually-hidden{left:auto;right:0}\n"],
+    encapsulation: 2,
+    changeDetection: 0
+  });
+};
+(() => {
+  (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(_VisuallyHiddenLoader, [{
+    type: Component,
+    args: [{
+      exportAs: "cdkVisuallyHidden",
+      encapsulation: ViewEncapsulation.None,
+      template: "",
+      changeDetection: ChangeDetectionStrategy.OnPush,
+      styles: [".cdk-visually-hidden{border:0;clip:rect(0 0 0 0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px;white-space:nowrap;outline:0;-webkit-appearance:none;-moz-appearance:none;left:0}[dir=rtl] .cdk-visually-hidden{left:auto;right:0}\n"]
+    }]
+  }], null, null);
 })();
 
 // node_modules/@angular/cdk/fesm2022/breakpoints-observer-QutrMj4x.mjs
@@ -1194,7 +1114,7 @@ var ObserversModule = class _ObserversModule {
   }], null, null);
 })();
 
-// node_modules/@angular/cdk/fesm2022/a11y-module-DHa4AVFz.mjs
+// node_modules/@angular/cdk/fesm2022/a11y-module-BPzgKr79.mjs
 var InteractivityChecker = class _InteractivityChecker {
   _platform = inject(Platform);
   constructor() {
@@ -2036,6 +1956,14 @@ var A11yModule = class _A11yModule {
   }], () => [], null);
 })();
 
+// node_modules/@angular/cdk/fesm2022/keycodes.mjs
+function hasModifierKey(event, ...modifiers) {
+  if (modifiers.length) {
+    return modifiers.some((modifier) => event[modifier]);
+  }
+  return event.altKey || event.shiftKey || event.ctrlKey || event.metaKey;
+}
+
 // node_modules/@angular/cdk/fesm2022/id-generator-LuoRZSid.mjs
 var counters = {};
 var _IdGenerator = class __IdGenerator {
@@ -2871,13 +2799,15 @@ var MatCommonModule = class _MatCommonModule {
 export {
   isFakeMousedownFromScreenReader,
   isFakeTouchstartFromScreenReader,
+  ESCAPE,
   _getEventTarget,
-  Platform,
   normalizePassiveListenerOptions,
-  coerceElement,
   FocusMonitor,
   _CdkPrivateStyleLoader,
   MediaMatcher,
+  InteractivityChecker,
+  FocusTrapFactory,
+  hasModifierKey,
   MatCommonModule
 };
-//# sourceMappingURL=chunk-4TOHMWKG.js.map
+//# sourceMappingURL=chunk-JVBQFSUK.js.map

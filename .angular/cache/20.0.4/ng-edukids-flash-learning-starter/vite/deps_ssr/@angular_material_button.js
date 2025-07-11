@@ -1,21 +1,25 @@
 import { createRequire } from 'module';const require = createRequire(import.meta.url);
-import "./chunk-XQDSWCFU.js";
+import {
+  _animationsDisabled
+} from "./chunk-5CP3Z67Y.js";
+import "./chunk-QI2UF2WI.js";
+import "./chunk-YZRXDCC3.js";
 import {
   FocusMonitor,
   MatCommonModule,
-  MediaMatcher,
-  Platform,
   _CdkPrivateStyleLoader,
   _getEventTarget,
-  coerceElement,
   isFakeMousedownFromScreenReader,
   isFakeTouchstartFromScreenReader,
   normalizePassiveListenerOptions
-} from "./chunk-4TOHMWKG.js";
+} from "./chunk-JVBQFSUK.js";
+import {
+  Platform,
+  coerceElement
+} from "./chunk-3FMWX5AH.js";
 import "./chunk-D7KMPKFJ.js";
 import "./chunk-6AJUUUJE.js";
 import {
-  ANIMATION_MODULE_TYPE,
   ChangeDetectionStrategy,
   Component,
   DOCUMENT,
@@ -33,7 +37,6 @@ import {
   booleanAttribute,
   inject,
   numberAttribute,
-  require_operators,
   setClassMetadata,
   ɵɵInheritDefinitionFeature,
   ɵɵattribute,
@@ -50,42 +53,10 @@ import {
   ɵɵprojection,
   ɵɵprojectionDef
 } from "./chunk-QRQSPDYV.js";
+import "./chunk-DMO44UNM.js";
 import {
-  require_cjs
-} from "./chunk-DMO44UNM.js";
-import {
-  __spreadValues,
-  __toESM
+  __spreadValues
 } from "./chunk-6DU2HRTW.js";
-
-// node_modules/@angular/cdk/fesm2022/layout.mjs
-var import_rxjs = __toESM(require_cjs(), 1);
-var import_operators = __toESM(require_operators(), 1);
-var LayoutModule = class _LayoutModule {
-  static ɵfac = function LayoutModule_Factory(__ngFactoryType__) {
-    return new (__ngFactoryType__ || _LayoutModule)();
-  };
-  static ɵmod = ɵɵdefineNgModule({
-    type: _LayoutModule
-  });
-  static ɵinj = ɵɵdefineInjector({});
-};
-(() => {
-  (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(LayoutModule, [{
-    type: NgModule,
-    args: [{}]
-  }], null, null);
-})();
-
-// node_modules/@angular/material/fesm2022/animation-DfMFjxHu.mjs
-var MATERIAL_ANIMATIONS = new InjectionToken("MATERIAL_ANIMATIONS");
-function _animationsDisabled() {
-  if (inject(MATERIAL_ANIMATIONS, { optional: true })?.animationsDisabled || inject(ANIMATION_MODULE_TYPE, { optional: true }) === "NoopAnimations") {
-    return true;
-  }
-  const mediaMatcher = inject(MediaMatcher);
-  return mediaMatcher.matchMedia("(prefers-reduced-motion)").matches;
-}
 
 // node_modules/@angular/material/fesm2022/ripple-BYgV4oZC.mjs
 var RippleState;

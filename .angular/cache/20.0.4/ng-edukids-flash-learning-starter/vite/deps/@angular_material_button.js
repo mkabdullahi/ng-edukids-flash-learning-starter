@@ -1,20 +1,24 @@
-import "./chunk-G5EO4JHK.js";
+import {
+  _animationsDisabled
+} from "./chunk-ID2BI3AB.js";
+import "./chunk-HD5RALXD.js";
+import "./chunk-EOFW2REK.js";
 import {
   FocusMonitor,
   MatCommonModule,
-  MediaMatcher,
-  Platform,
   _CdkPrivateStyleLoader,
   _getEventTarget,
-  coerceElement,
   isFakeMousedownFromScreenReader,
   isFakeTouchstartFromScreenReader,
   normalizePassiveListenerOptions
-} from "./chunk-F467RTH3.js";
+} from "./chunk-OMSQHXE7.js";
+import {
+  Platform,
+  coerceElement
+} from "./chunk-FZ7O55AX.js";
 import "./chunk-XJIVC556.js";
 import "./chunk-BTWMHIXJ.js";
 import {
-  ANIMATION_MODULE_TYPE,
   ChangeDetectionStrategy,
   Component,
   DOCUMENT,
@@ -51,33 +55,6 @@ import {
 import {
   __spreadValues
 } from "./chunk-SESUV4G6.js";
-
-// node_modules/@angular/cdk/fesm2022/layout.mjs
-var LayoutModule = class _LayoutModule {
-  static ɵfac = function LayoutModule_Factory(__ngFactoryType__) {
-    return new (__ngFactoryType__ || _LayoutModule)();
-  };
-  static ɵmod = ɵɵdefineNgModule({
-    type: _LayoutModule
-  });
-  static ɵinj = ɵɵdefineInjector({});
-};
-(() => {
-  (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(LayoutModule, [{
-    type: NgModule,
-    args: [{}]
-  }], null, null);
-})();
-
-// node_modules/@angular/material/fesm2022/animation-DfMFjxHu.mjs
-var MATERIAL_ANIMATIONS = new InjectionToken("MATERIAL_ANIMATIONS");
-function _animationsDisabled() {
-  if (inject(MATERIAL_ANIMATIONS, { optional: true })?.animationsDisabled || inject(ANIMATION_MODULE_TYPE, { optional: true }) === "NoopAnimations") {
-    return true;
-  }
-  const mediaMatcher = inject(MediaMatcher);
-  return mediaMatcher.matchMedia("(prefers-reduced-motion)").matches;
-}
 
 // node_modules/@angular/material/fesm2022/ripple-BYgV4oZC.mjs
 var RippleState;

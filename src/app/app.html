@@ -1,6 +1,18 @@
 
 
-<!-- All logic is now handled by router-outlet in app.ts -->
-
-
-
+<mat-toolbar color="primary" class="main-nav">
+  <div class="nav-container">
+    <a routerLink="/" class="brand">
+      <img src="assets/logo.svg" alt="EduKids" height="32">
+    </a>
+    <nav class="desktop-nav">
+      <a mat-button routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
+      <a mat-button routerLink="/flash-cards" routerLinkActive="active">Flash Cards</a>
+      <a mat-button routerLink="/bedtime-book" routerLinkActive="active">Bedtime Book</a>
+    </nav>
+    <button mat-icon-button class="mobile-menu" (click)="toggleMobileMenu()">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </div>
+</mat-toolbar>
+<router-outlet></router-outlet>

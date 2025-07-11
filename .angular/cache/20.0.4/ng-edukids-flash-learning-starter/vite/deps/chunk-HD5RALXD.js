@@ -5,14 +5,6 @@ import {
   ɵɵdefineNgModule
 } from "./chunk-L7AQJQLR.js";
 
-// node_modules/@angular/cdk/fesm2022/scrolling-BkvA05C8.mjs
-var RtlScrollAxisType;
-(function(RtlScrollAxisType2) {
-  RtlScrollAxisType2[RtlScrollAxisType2["NORMAL"] = 0] = "NORMAL";
-  RtlScrollAxisType2[RtlScrollAxisType2["NEGATED"] = 1] = "NEGATED";
-  RtlScrollAxisType2[RtlScrollAxisType2["INVERTED"] = 2] = "INVERTED";
-})(RtlScrollAxisType || (RtlScrollAxisType = {}));
-
 // node_modules/@angular/cdk/fesm2022/platform.mjs
 var PlatformModule = class _PlatformModule {
   static ɵfac = function PlatformModule_Factory(__ngFactoryType__) {
@@ -29,4 +21,4 @@ var PlatformModule = class _PlatformModule {
     args: [{}]
   }], null, null);
 })();
-//# sourceMappingURL=chunk-G5EO4JHK.js.map
+//# sourceMappingURL=chunk-HD5RALXD.js.map
